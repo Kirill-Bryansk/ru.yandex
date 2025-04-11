@@ -1,4 +1,4 @@
-package practicum.codingpractice;
+package practicum.codingpractice.LostAndFoundOffice;
 import java.util.ArrayList;
 
 public class LostAndFoundOffice {

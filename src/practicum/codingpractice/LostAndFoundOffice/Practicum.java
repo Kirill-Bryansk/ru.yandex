@@ -1,4 +1,4 @@
-package practicum.codingpractice;
+package practicum.codingpractice.LostAndFoundOffice;
 
 class Ball { }      // Класс "мяч"
 class Accordion { } // Класс "аккордеон"
