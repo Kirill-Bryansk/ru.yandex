@@ -1,13 +1,15 @@
+package model;
+
 import java.util.ArrayList;
 
 public class Epic extends Task {
     private ArrayList<Subtask> subtaskList = new ArrayList<>();
 
-    public Epic(String name, String description, Status status) {
-        super(name, description, status);
+    public Epic(String name, String description) {
+        super(name, description);
     }
 
-    public void addSubtaskList(Subtask subtask) { // добавляем строки субтаска в Epic
+    public void addSubtaskList(Subtask subtask) { // добавляем строки субтаска в model.Epic
         subtaskList.add(subtask);
     }
 
@@ -19,14 +21,18 @@ public class Epic extends Task {
         this.subtaskList = subtaskList;
     }
 
+    public void clearSubtaskList() {
+        subtaskList.clear();
+    }
+
     @Override
     public String toString() {
-        return " Epic: " +
+        return " model.Epic: " +
                 " Название: " + getName() +
                 ", Описание: " + getDescription() +
                 ", Id = " + getId() +
                 ", Статус: " + getStatus() +
-                ", Subtask: " + subtaskList +
+                ", model.Subtask: " + subtaskList +
                 "\n";
     }
 }
