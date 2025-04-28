@@ -1,4 +1,4 @@
-package model;
+package ru.yandex.java_canban.model;
 
 import java.util.ArrayList;
 
@@ -9,7 +9,7 @@ public class Epic extends Task {
         super(name, description);
     }
 
-    public void addSubtaskList(Subtask subtask) { // добавляем строки субтаска в model.Epic
+    public void addSubtaskList(Subtask subtask) { // добавляем строки субтаска в ru.yandex.java_canban.model.Epic
         subtaskList.add(subtask);
     }
 
@@ -27,12 +27,12 @@ public class Epic extends Task {
 
     @Override
     public String toString() {
-        return " model.Epic: " +
+        return " ru.yandex.java_canban.model.Epic: " +
                 " Название: " + getName() +
                 ", Описание: " + getDescription() +
                 ", Id = " + getId() +
                 ", Статус: " + getStatus() +
-                ", model.Subtask: " + subtaskList +
+                ", ru.yandex.java_canban.model.Subtask: " + subtaskList +
                 "\n";
     }
 }

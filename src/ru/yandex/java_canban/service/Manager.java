@@ -1,5 +1,6 @@
-package service;
-import model.*;
+package ru.yandex.java_canban.service;
+import ru.yandex.java_canban.model.*;
+
 import java.util.*;
 
 public class Manager {

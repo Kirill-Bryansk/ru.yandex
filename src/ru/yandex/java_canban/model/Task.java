@@ -1,4 +1,4 @@
-package model;
+package ru.yandex.java_canban.model;
 
 import java.util.Objects;
 
@@ -70,7 +70,7 @@ public class Task {
 
     @Override
     public String toString() {
-        return " model.Task (" +
+        return " ru.yandex.java_canban.model.Task (" +
                 " Название: " + name +
                 ", Описание: " + description +
                 ", Id = " + id +
