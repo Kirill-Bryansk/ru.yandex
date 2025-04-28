@@ -4,8 +4,14 @@ import ru.yandex.java_canban.model.*;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 
 public class InMemoryTaskManager implements TaskManager {
+
+    private final HashMap<Integer, Task> taskMap = new HashMap<>();
+    private final HashMap<Integer, Epic> epicMap = new HashMap<>();
+    private final HashMap<Integer, Subtask> subtaskMap = new HashMap<>();
+    private int count = 1;
 
     @Override
     public int getCount() {
