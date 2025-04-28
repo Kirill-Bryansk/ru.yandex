@@ -5,8 +5,8 @@ import ru.yandex.java_canban.model.Status;
 public class Subtask extends Task {
     private final Integer epicId;
 
-    public Subtask(String name, String description, Status status, Integer epicId) {
-        super(name, description, status);
+    public Subtask(String name, String description, Integer epicId) {
+        super(name, description);
         this.epicId = epicId;
     }
 
@@ -16,7 +16,7 @@ public class Subtask extends Task {
 
     @Override
     public String toString() {
-        return  "ru.yandex.java_canban.model.Subtask (" +
+        return  " Subtask (" +
                 "Название: " + getName() +
                 ", Описание: " + getDescription() +
                 ", id=" + getId() +

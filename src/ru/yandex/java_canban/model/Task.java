@@ -8,12 +8,6 @@ public class Task {
     private Integer id;
     private Status status;
 
-    public Task(String name, String description, Status status) {
-        this.name = name;
-        this.description = description;
-        this.status = status;
-    }
-
     public Task(String name, String description) {
         this.name = name;
         this.description = description;
@@ -70,7 +64,7 @@ public class Task {
 
     @Override
     public String toString() {
-        return " ru.yandex.java_canban.model.Task (" +
+        return " Task (" +
                 " Название: " + name +
                 ", Описание: " + description +
                 ", Id = " + id +

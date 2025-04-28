@@ -16,20 +16,19 @@ public class Manager {
 
     public void addTask(Task task) {
         task.setId(getCount());
+        task.setStatus(Status.NEW);
         taskMap.put(task.getId(), task);
     }
 
     public void addEpic(Epic epic) {
         epic.setId(getCount());
+        epic.setStatus(Status.NEW);
         epicMap.put(epic.getId(), epic);
     }
 
-
-
-
-
     public void addSubtask(Subtask subtask) {
         subtask.setId(getCount());
+        subtask.setStatus(Status.NEW);
         subtaskMap.put(subtask.getId(), subtask);
         epicMap.get(subtask.getEpicId()).addSubtaskList(subtask);
         Epic epic = epicMap.get(subtask.getEpicId());
@@ -78,52 +77,64 @@ public class Manager {
     }
 
     public Task updateTask(Task task) {
-        Integer taskID = task.getId();
-        if (taskID == null || !taskMap.containsKey(taskID)) {
-            return null;
+        if (task != null) {
+            Integer taskID = task.getId();
+            if (taskID == null || !taskMap.containsKey(taskID)) {
+                return null;
+            }
+            taskMap.replace(taskID, task);
+            return task;
         }
-        taskMap.replace(taskID, task);
-        return task;
+        System.out.println("This task not exist");
+        return null;
     }
 
     public Epic updateEpic(Epic epic) { // надо проверить
-        Integer epicId = epic.getId();
-        if (epicId == null || !epicMap.containsKey(epicId)) {
-            return null;
-        }
-        Epic existentEpic = epicMap.get(epicId);
-        ArrayList<Subtask> existentEpicSubtaskList = existentEpic.getSubtaskList();
-        if (!existentEpicSubtaskList.isEmpty()) {
-            for (Subtask subtask : existentEpicSubtaskList) {
-                subtaskMap.remove(subtask.getId());
+        if (epic != null) {
+            Integer epicId = epic.getId();
+            if (epicId == null || !epicMap.containsKey(epicId)) {
+                return null;
             }
-        }
-        epicMap.replace(epicId, epic); // замена эпика
-        ArrayList<Subtask> newEpicSubtaskList = epic.getSubtaskList();
-        if (!newEpicSubtaskList.isEmpty()) {
-            for (Subtask subtask : newEpicSubtaskList) {
-                subtaskMap.put(subtask.getId(), subtask);
+            Epic existentEpic = epicMap.get(epicId);
+            ArrayList<Subtask> existentEpicSubtaskList = existentEpic.getSubtaskList();
+            if (!existentEpicSubtaskList.isEmpty()) {
+                for (Subtask subtask : existentEpicSubtaskList) {
+                    subtaskMap.remove(subtask.getId());
+                }
             }
+            epicMap.replace(epicId, epic); // замена эпика
+            ArrayList<Subtask> newEpicSubtaskList = epic.getSubtaskList();
+            if (!newEpicSubtaskList.isEmpty()) {
+                for (Subtask subtask : newEpicSubtaskList) {
+                    subtaskMap.put(subtask.getId(), subtask);
+                }
+            }
+            updateEpicStatus(epic);
+            return epic;
         }
-        updateEpicStatus(epic);
-        return epic;
+        System.out.println("This epic not exist");
+        return null;
     }
 
     public Subtask updateSubtask(Subtask subtask) {
-        Integer subtaskId = subtask.getId();
-        if (subtaskId == null || !subtaskMap.containsKey(subtaskId)) {
-            return null;
+        if (subtask != null) {
+            Integer subtaskId = subtask.getId();
+            if (subtaskId == null || !subtaskMap.containsKey(subtaskId)) {
+                return null;
+            }
+            Integer epicId = subtask.getEpicId();
+            Subtask existentSubtask = subtaskMap.get(subtaskId);
+            subtaskMap.replace(subtaskId, subtask);
+            Epic epic = epicMap.get(epicId);
+            ArrayList<Subtask> subtaskList = epic.getSubtaskList();
+            subtaskList.remove(existentSubtask);
+            subtaskList.add(subtask);
+            epic.setSubtaskList(subtaskList);
+            updateEpicStatus(epic);
+            return subtask;
         }
-        Integer epicId = subtask.getEpicId();
-        Subtask existentSubtask = subtaskMap.get(subtaskId);
-        subtaskMap.replace(subtaskId, subtask);
-        Epic epic = epicMap.get(epicId);
-        ArrayList<Subtask> subtaskList = epic.getSubtaskList();
-        subtaskList.remove(existentSubtask);
-        subtaskList.add(subtask);
-        epic.setSubtaskList(subtaskList);
-        updateEpicStatus(epic);
-        return subtask;
+        System.out.println("This subtask not exist");
+        return null;
     }
 
     public void deleteTaskById(Integer id) {

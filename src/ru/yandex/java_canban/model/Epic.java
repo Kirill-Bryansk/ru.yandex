@@ -27,12 +27,12 @@ public class Epic extends Task {
 
     @Override
     public String toString() {
-        return " ru.yandex.java_canban.model.Epic: " +
+        return  " Epic: " +
                 " Название: " + getName() +
                 ", Описание: " + getDescription() +
                 ", Id = " + getId() +
                 ", Статус: " + getStatus() +
-                ", ru.yandex.java_canban.model.Subtask: " + subtaskList +
+                ", Subtask: " + subtaskList +
                 "\n";
     }
 }
