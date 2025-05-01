@@ -6,9 +6,13 @@ import ru.yandex.java_canban.model.Subtask;
 import ru.yandex.java_canban.model.Task;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public interface TaskManager {
+
     int getCount();
+
+    List<Task> getHistory();// ПоЧЕу то здесь должен быть гет хистори
 
     void addTask(Task task);
 

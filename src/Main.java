@@ -1,10 +1,13 @@
 import ru.yandex.java_canban.model.*;
+import ru.yandex.java_canban.service.InMemoryHistoryManager;
+import ru.yandex.java_canban.service.InMemoryTaskManager;
 import ru.yandex.java_canban.service.Managers;
+//import ru.yandex.java_canban.service.Managers;
 
 public class Main {
 
     public static void main(String[] args) {
-        Managers managers = new Managers();
+        InMemoryTaskManager managers = Managers.getDefault(Managers.getDefaultHistory());
         // Две задачи
         managers.addTask(new Task("Задача 1", "Выполнить 1 задачу"));
         managers.addTask(new Task("Задача 2", "Выполнить 2 задачу"));
@@ -14,7 +17,7 @@ public class Main {
         managers.addSubtask(new Subtask("Sub - Эпика 1", "Подзадача 1", 3));
         managers.addSubtask(new Subtask("Sub - Эпика 1", "Подзадача 2",  3));
         // Эпик с одной подзадачей
-        Epic epic2 = new Epic("Эпик 1", "Не менее Важный");
+        Epic epic2 = new Epic("Эпик 2", "Не менее Важный");
         managers.addEpic(epic2);
         managers.addSubtask(new Subtask("Sub - Эпика 2", "Подзадача 1",  6));
         // Печать списки Эпиков, Задач, Подзадач
@@ -28,7 +31,10 @@ public class Main {
         managers.changeStatus(4,Status.DONE);
         managers.changeStatus(5, Status.DONE);
         managers.changeStatus(7, Status.IN_PROGRESS);
+
+        System.out.println("---------");
         managers.updateSubtask(managers.getSubtaskById(10));
+        System.out.println("---------");
         // Расчитываю статус ru.yandex.java_canban.model.Epic
         managers.updateEpicStatus(epic1);
         managers.updateEpicStatus(epic2);
@@ -40,5 +46,8 @@ public class Main {
         System.out.println(managers.getSubtaskById(7));
         System.out.println(managers.getEpicById(3));
         System.out.println(managers.getEpicById(6));
+
+        System.out.println("-".repeat(10));
+        System.out.println(managers.getHistory());
     }
 }

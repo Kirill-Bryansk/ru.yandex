@@ -64,11 +64,11 @@ public class Task {
 
     @Override
     public String toString() {
-        return " Task (" +
-                " Название: " + name +
+        return "\nTask (" +
+                "Название: " + name +
                 ", Описание: " + description +
                 ", Id = " + id +
-                ", Статус: " + status + " )" +
+                ", Статус: " + status + ")" +
                 "\n";
     }
 }

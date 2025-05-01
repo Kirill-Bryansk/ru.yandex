@@ -5,14 +5,24 @@ import ru.yandex.java_canban.model.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 
 public class InMemoryTaskManager implements TaskManager {
 
     private final HashMap<Integer, Task> taskMap = new HashMap<>();
     private final HashMap<Integer, Epic> epicMap = new HashMap<>();
     private final HashMap<Integer, Subtask> subtaskMap = new HashMap<>();
-    private int count = 1;
 
+    private int count = 1;
+    private final HistoryManager historyManager;
+
+    public InMemoryTaskManager(HistoryManager historyManager) {
+        this.historyManager = historyManager;
+    }
+    @Override
+    public List<Task> getHistory() {
+        return historyManager.getHistory();
+    }
     @Override
     public int getCount() {
         return count++;
@@ -79,17 +89,38 @@ public class InMemoryTaskManager implements TaskManager {
 
     @Override
     public Task getTaskById(Integer id) {
-        return taskMap.get(id);
+        if (id != 0 && id > 0) {
+            if (taskMap.get(id) != null) {
+                historyManager.add(taskMap.get(id));
+                return taskMap.get(id);
+            }
+        }
+        System.out.println("This task not exist");
+        return null;
     }
 
     @Override
     public Epic getEpicById(Integer id) {
-        return epicMap.get(id);
+        if (id != 0 && id > 0) {
+            if (epicMap.get(id) != null) {
+                historyManager.add(epicMap.get(id));
+                return epicMap.get(id);
+            }
+        }
+        System.out.println("This epic not exist");
+        return null;
     }
 
     @Override
     public Subtask getSubtaskById(Integer id) {
-        return subtaskMap.get(id);
+        if (id != 0 && id > 0) {
+            if (subtaskMap.get(id) != null) {
+                historyManager.add(subtaskMap.get(id));
+                return subtaskMap.get(id);
+            }
+        }
+        System.out.println("This subtask not exist");
+        return null;
     }
 
     @Override
@@ -152,7 +183,6 @@ public class InMemoryTaskManager implements TaskManager {
             updateEpicStatus(epic);
             return subtask;
         }
-        System.out.println("This subtask not exist");
         return null;
     }
 
