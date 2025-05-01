@@ -7,7 +7,7 @@ import ru.yandex.java_canban.service.Managers;
 public class Main {
 
     public static void main(String[] args) {
-        InMemoryTaskManager managers = Managers.getDefault(Managers.getDefaultHistory());
+        InMemoryTaskManager managers = Managers.getDefault(); //Managers.getDefaultHistory()
         // Две задачи
         managers.addTask(new Task("Задача 1", "Выполнить 1 задачу"));
         managers.addTask(new Task("Задача 2", "Выполнить 2 задачу"));

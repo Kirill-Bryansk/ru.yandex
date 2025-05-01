@@ -7,8 +7,8 @@ import java.util.List;
 
 public class Managers  {
 
-    public static InMemoryTaskManager getDefault (HistoryManager historyManager) {
-        return new InMemoryTaskManager(getDefaultHistory());
+    public static InMemoryTaskManager getDefault () { //HistoryManager historyManager
+        return new InMemoryTaskManager(); //getDefaultHistory()
     }
 
     public static InMemoryHistoryManager getDefaultHistory () {
