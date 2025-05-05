@@ -13,6 +13,19 @@ public class Task {
         this.description = description;
     }
 
+    public Task(String name, String description, Integer id ) {
+        this.name = name;
+        this.description = description;
+        this.id = id;
+    }
+
+    public Task(String name, String description, Integer id, Status status) {
+        this.name = name;
+        this.description = description;
+        this.id = id;
+        this.status = status;
+    }
+
     public String getName() {
         return name;
     }
@@ -56,14 +69,11 @@ public class Task {
         if (obj == null) return false;
         if (this.getClass() != obj.getClass()) return false;
         Task task = (Task) obj;
-        return Objects.equals(name, task.name) &&
-                Objects.equals(description, task.description) &&
-                id == task.id &&
-                Objects.equals(status, task.status);
+        return Objects.equals(id, task.id);
     }
 
     @Override
-    public String toString() {
+        public String toString() {
         return "\nTask (" +
                 "Название: " + name +
                 ", Описание: " + description +

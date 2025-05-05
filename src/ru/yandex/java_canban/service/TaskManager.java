@@ -14,11 +14,11 @@ public interface TaskManager {
 
     List<Task> getHistory();// ПоЧЕу то здесь должен быть гет хистори
 
-    void addTask(Task task);
+    Task addTask(Task task);
 
-    void addEpic(Epic epic);
+    Epic addEpic(Epic epic);
 
-    void addSubtask(Subtask subtask);
+    Subtask addSubtask(Subtask subtask);
 
     ArrayList<Task> getTaskMap();
 
