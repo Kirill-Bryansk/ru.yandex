@@ -1,13 +1,11 @@
 import ru.yandex.java_canban.model.*;
-import ru.yandex.java_canban.service.InMemoryHistoryManager;
-import ru.yandex.java_canban.service.InMemoryTaskManager;
 import ru.yandex.java_canban.service.Managers;
-//import ru.yandex.java_canban.service.Managers;
+import ru.yandex.java_canban.service.TaskManager;
 
 public class Main {
 
     public static void main(String[] args) {
-        InMemoryTaskManager manager = Managers.getDefault(); //Managers.getDefaultHistory()
+        TaskManager manager = Managers.getDefault();
         // Две задачи
         manager.addTask(new Task("Задача 1", "Выполнить 1 задачу"));
         manager.addTask(new Task("Задача 2", "Выполнить 2 задачу"));

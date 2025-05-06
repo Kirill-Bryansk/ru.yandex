@@ -1,7 +1,6 @@
 package ru.yandex.java_canban.service;
 
 import ru.yandex.java_canban.model.*;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -89,10 +88,11 @@ public class InMemoryTaskManager implements TaskManager {
 
     @Override
     public Task getTaskById(Integer id) {
-        if (id != 0 && id > 0) {
-            if (taskMap.get(id) != null) {
-                historyManager.add(taskMap.get(id));
-                return taskMap.get(id);
+        if (id > 0) {
+            Task task = taskMap.get(id);
+            if (task != null) {
+                historyManager.add(task);
+                return task;
             }
         }
         System.out.println("This task not exist");
@@ -101,10 +101,11 @@ public class InMemoryTaskManager implements TaskManager {
 
     @Override
     public Epic getEpicById(Integer id) {
-        if (id != 0 && id > 0) {
-            if (epicMap.get(id) != null) {
-                historyManager.add(epicMap.get(id));
-                return epicMap.get(id);
+        if (id > 0) {
+            Epic epic = epicMap.get(id);
+            if (epic != null) {
+                historyManager.add(epic);
+                return epic;
             }
         }
         System.out.println("This epic not exist");
@@ -113,10 +114,11 @@ public class InMemoryTaskManager implements TaskManager {
 
     @Override
     public Subtask getSubtaskById(Integer id) {
-        if (id != 0 && id > 0) {
-            if (subtaskMap.get(id) != null) {
-                historyManager.add(subtaskMap.get(id));
-                return subtaskMap.get(id);
+        if (id > 0) {
+            Subtask subtask = subtaskMap.get(id);
+            if (subtask != null) {
+                historyManager.add(subtask);
+                return subtask;
             }
         }
         System.out.println("This subtask not exist");
@@ -138,7 +140,7 @@ public class InMemoryTaskManager implements TaskManager {
     }
 
     @Override
-    public Epic updateEpic(Epic epic) { // надо проверить
+    public Epic updateEpic(Epic epic) {
         if (epic != null) {
             Integer epicId = epic.getId();
             if (epicId == null || !epicMap.containsKey(epicId)) {
@@ -151,7 +153,7 @@ public class InMemoryTaskManager implements TaskManager {
                     subtaskMap.remove(subtask.getId());
                 }
             }
-            epicMap.replace(epicId, epic); // замена эпика
+            epicMap.replace(epicId, epic);
             ArrayList<Subtask> newEpicSubtaskList = epic.getSubtaskList();
             if (!newEpicSubtaskList.isEmpty()) {
                 for (Subtask subtask : newEpicSubtaskList) {

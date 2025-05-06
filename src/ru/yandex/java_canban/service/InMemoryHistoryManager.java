@@ -1,28 +1,32 @@
 package ru.yandex.java_canban.service;
 
 import ru.yandex.java_canban.model.Task;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class InMemoryHistoryManager implements HistoryManager {
 
-    private final List<Task> historyList = new ArrayList<>(); // пишет вызваные задачи
+    private final List<Task> historyList = new ArrayList<>();
+    private static final int NUMBER_OF_VIEWS = 10;
 
     @Override
     public List<Task> getHistory() {
         if (!historyList.isEmpty()) {
-            return historyList;
+            return List.copyOf(historyList);
         } else {
             System.out.println("History is empty");
-            return null;
+            List<Task> emptyList = new ArrayList<>();
+            return emptyList;
         }
     }
 
     @Override
     public void add(Task task) {
-        if (historyList.size() == 10) {
-            historyList.remove(0); // удаляем первый
+        if (historyList.size() == NUMBER_OF_VIEWS) {
+            historyList.remove(0); // Я до ревью пробывал воспользоваться методом removeFirst()
+            // но тогда получается ошибка : cannot find symbol
+            //  symbol:   method removeFirst()
+            // хотя до запуска intelij не распознает эту ошибку
             historyList.add(task);
         } else {
             historyList.add(task);

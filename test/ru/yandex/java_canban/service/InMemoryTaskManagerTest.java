@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class InMemoryTaskManagerTest {
-    private InMemoryTaskManager manager;
+    private TaskManager manager;
     private Task task;
     private Epic epic;
     private Subtask subtask;
@@ -87,7 +87,7 @@ public class InMemoryTaskManagerTest {
 
         assertNotNull(epics, "Задачи не возвращаются.");
         assertEquals(1, epics.size(), "Неверное количество задач.");
-        assertEquals(epics, epics.get(0), "Задачи не совпадают.");
+        assertEquals(epic, epics.get(0), "Задачи не совпадают.");
     }
 
     @Test
@@ -99,7 +99,7 @@ public class InMemoryTaskManagerTest {
 
     @Test
     public void epicWhenAddedToManager() {
-        Epic testEpic = manager.getEpicById(1);
+        Epic testEpic = manager.getEpicById(2);
 
         Assertions.assertEquals(epic.getId(), testEpic.getId());
         Assertions.assertEquals(epic.getName(), testEpic.getName());
@@ -169,17 +169,14 @@ public class InMemoryTaskManagerTest {
 
     @Test
     void shouldUpdateSubtask() {
-        subtask = new Subtask("Подзадача №1", "Выполнять подзадачу", epic.getId());
-        Subtask expectedSubtask = new Subtask("Подзадача №1", "Выполнять подзадачу", 5,
-                Status.DONE, epic.getId());
-
-        manager.addSubtask(subtask);
-        Subtask updatedSubtask = new Subtask("Подзадача №1", "Выполнять новую  подзадачу", 5,
-                Status.DONE, epic.getId());
+        Subtask expectedSubtask = new Subtask("Подзадача №1", "Выполнять подзадачу", 3,
+                Status.NEW, epic.getId());
+        Subtask updatedSubtask = new Subtask("Подзадача №1", "Выполнять новую  подзадачу", 3,
+                Status.NEW, epic.getId());
         manager.updateSubtask(updatedSubtask);
         Subtask actualSubtask = manager.getSubtaskById(updatedSubtask.getId());
 
-        Assertions.assertEquals(expectedSubtask, actualSubtask);
+        Assertions.assertEquals(expectedSubtask, actualSubtask, "Они не равны");
     }
 
     @Test
