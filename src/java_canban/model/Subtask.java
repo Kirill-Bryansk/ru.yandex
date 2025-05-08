@@ -1,4 +1,4 @@
-package ru.yandex.java_canban.model;
+package java_canban.model;
 
 public class Subtask extends Task {
     private final Integer epicId;

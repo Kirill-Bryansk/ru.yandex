@@ -1,6 +1,10 @@
-package ru.yandex.java_canban.service;
+package java_canban.service;
 
-import ru.yandex.java_canban.model.*;
+import java_canban.model.Epic;
+import java_canban.model.Status;
+import java_canban.model.Subtask;
+import java_canban.model.Task;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;

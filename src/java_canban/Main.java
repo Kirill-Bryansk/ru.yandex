@@ -1,6 +1,11 @@
-import ru.yandex.java_canban.model.*;
-import ru.yandex.java_canban.service.Managers;
-import ru.yandex.java_canban.service.TaskManager;
+package java_canban;
+
+import java_canban.model.Epic;
+import java_canban.model.Status;
+import java_canban.model.Subtask;
+import java_canban.model.Task;
+import java_canban.service.Managers;
+import java_canban.service.TaskManager;
 
 public class Main {
 
@@ -22,8 +27,8 @@ public class Main {
         System.out.println(manager.getTaskMap());
         System.out.println(manager.getEpicMap());
         System.out.println(manager.getSubtaskMap());
-        // Изменяю статус ru.yandex.java_canban.model.Task
-        manager.changeStatus(1,Status.DONE);
+        // Изменяю статус java_canban.model.Task
+        manager.changeStatus(1, Status.DONE);
         manager.changeStatus(2,Status.IN_PROGRESS);
         // Изменяю статус SubTask
         manager.changeStatus(4,Status.DONE);
@@ -33,7 +38,7 @@ public class Main {
         System.out.println("---------");
         manager.updateSubtask(manager.getSubtaskById(10));
         System.out.println("---------");
-        // Расчитываю статус ru.yandex.java_canban.model.Epic
+        // Расчитываю статус java_canban.model.Epic
         manager.updateEpicStatus(epic1);
         manager.updateEpicStatus(epic2);
         // Печатаю после изменений

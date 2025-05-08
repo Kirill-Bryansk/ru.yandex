@@ -1,4 +1,4 @@
-package ru.yandex.java_canban.service;
+package java_canban.service;
 
 public class Managers  {
 

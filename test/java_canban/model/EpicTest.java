@@ -1,5 +1,6 @@
-package ru.yandex.java_canban.model;
+package java_canban.model;
 
+import java_canban.model.Epic;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;

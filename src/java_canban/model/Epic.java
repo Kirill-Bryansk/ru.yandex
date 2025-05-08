@@ -1,4 +1,4 @@
-package ru.yandex.java_canban.model;
+package java_canban.model;
 
 import java.util.ArrayList;
 
@@ -18,7 +18,7 @@ public class Epic extends Task {
         this.subtaskList = subtaskList;
     }
 
-    public void addSubtaskList(Subtask subtask) { // добавляем строки субтаска в ru.yandex.java_canban.model.Epic
+    public void addSubtaskList(Subtask subtask) { // добавляем строки субтаска в java_canban.model.Epic
         subtaskList.add(subtask);
     }
 

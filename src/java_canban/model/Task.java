@@ -1,4 +1,4 @@
-package ru.yandex.java_canban.model;
+package java_canban.model;
 
 import java.util.Objects;
 

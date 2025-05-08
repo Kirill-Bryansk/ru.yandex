@@ -1,11 +1,13 @@
-package ru.yandex.java_canban.service;
+package java_canban.service;
 
+import java_canban.service.HistoryManager;
+import java_canban.service.Managers;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import ru.yandex.java_canban.model.Epic;
-import ru.yandex.java_canban.model.Subtask;
-import ru.yandex.java_canban.model.Task;
+import java_canban.model.Epic;
+import java_canban.model.Subtask;
+import java_canban.model.Task;
 
 import java.util.List;
 
