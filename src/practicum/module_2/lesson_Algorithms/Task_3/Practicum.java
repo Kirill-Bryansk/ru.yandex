@@ -1,4 +1,4 @@
-package practicum.module_2.just;
+package practicum.module_2.lesson_Algorithms.Task_3;
 
 public class Practicum {
     public static void main(String[] args) {
