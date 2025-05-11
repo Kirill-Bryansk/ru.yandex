@@ -1,4 +1,4 @@
-package practicum.module_1.sprint_4.lesson_Inheritance.Task_1;
+package practicum.module_1.sprint_4.lesson_Extends.Task_1;
 
 public class Practicum {
     public static void main(String[] args) {

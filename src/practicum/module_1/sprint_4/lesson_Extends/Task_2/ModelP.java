@@ -1,4 +1,4 @@
-package practicum.module_1.sprint_4.lesson_Inheritance.Task_2;
+package practicum.module_1.sprint_4.lesson_Extends.Task_2;
 
 class ModelP extends Transport {
     public ModelP() {
