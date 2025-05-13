@@ -1,7 +1,6 @@
 package java_canban.service;
 
 import java_canban.model.Task;
-import java_canban.service.HistoryManager;
 
 import java.util.ArrayList;
 import java.util.List;
