@@ -2,7 +2,6 @@ package practicum.module_2.lesson_Lists.Task_5;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 public class PotatoLaboratory {
@@ -27,8 +26,17 @@ public class PotatoLaboratory {
 				/* Вычислите две самые большие и две самые маленькие картофелины,
            а затем выведите их в порядке от самых маленьких до самых больших.*/
         final ArrayList<Potato> mutablePotatoes = new ArrayList<>(potatoes);
-        Collections.sort(mutablePotatoes, Potato::compareTo);
-        final ArrayList<Potato> experimentPotatoesList = new ArrayList<>();
+        final ArrayList<Potato> experimentPotatoesList =
+                new ArrayList<>(List.of(Collections.min(mutablePotatoes), Collections.max(mutablePotatoes)));
+        mutablePotatoes.removeAll(experimentPotatoesList);
+        experimentPotatoesList.add(Collections.max(mutablePotatoes));
+        experimentPotatoesList.add(Collections.min(mutablePotatoes));
+        Collections.sort(experimentPotatoesList);
+        return experimentPotatoesList;
+    }
+    /*final ArrayList<Potato> mutablePotatoes = new ArrayList<>(potatoes);
+    Collections.sort(mutablePotatoes, Potato::compareTo);
+    final ArrayList<Potato> experimentPotatoesList = new ArrayList<>(mutablePotatoes);
         experimentPotatoesList.add(Collections.min(mutablePotatoes));
         experimentPotatoesList.add(Collections.max(mutablePotatoes));
         mutablePotatoes.remove(Collections.max(mutablePotatoes));
@@ -36,6 +44,6 @@ public class PotatoLaboratory {
         experimentPotatoesList.add(Collections.max(mutablePotatoes));
         experimentPotatoesList.add(Collections.min(mutablePotatoes));
         Collections.sort(experimentPotatoesList);
-        return experimentPotatoesList;
-    }
+        return experimentPotatoesList;*/
+
 }
