@@ -1,4 +1,5 @@
-package practicum.module_2.just;
+package practicum.module_2.lesson_Map.Task_1;
+
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -24,10 +25,10 @@ public class Practicum {
         /*for (Map.Entry<String, Integer> entry : passengerNames.entrySet()) {
             System.out.println("'" + entry.getKey() + "' содержит " + entry.getValue() + " калорий в 100 г.");
         }*/
-        Map<String, Integer> assignSeats = new LinkedHashMap<>();
+        Map<String, Integer> assignSeats = new HashMap<>();
         for (int i = 0; i < passengerNames.size(); i++) {
             assignSeats.put(passengerNames.get(i), i + 1);
         }
-    return assignSeats;
+        return assignSeats;
     }
 }
