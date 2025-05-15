@@ -1,33 +1,64 @@
 package practicum.module_2.just;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
+
+
+
+import java.util.Comparator;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class Practicum {
-    // Пример списка пассажиров (на самом деле их больше)
-    private static List<String> passengerNames = List.of(
-            "Василий Петров",
-            "Анна Ягирская",
-            "Виктория Сотова",
-            "Игорь Серов",
-            "Людмила Ульянова"
-    );
-
     public static void main(String[] args) {
-        Map<String, Integer> seats = assignSeats(passengerNames);
-        System.out.println("Места пассажиров: " + seats);
+        Comparator<User> userComparator = new Comparator<>() {
+            @Override
+            public int compare(User user1, User user2) {
+                return user1.name.compareTo(user2.name);
+            }
+        };
+
+        Map<User, String> users = new TreeMap<>(userComparator);
+        fillWithData(users);
+
+        System.out.println("Пользователи: ");
+        for (Map.Entry<User, String> entry : users.entrySet()) {
+            System.out.println(entry);
+        }
     }
 
-    public static Map<String, Integer> assignSeats(List<String> passengerNames) {
-        // Тут нужно написать код, который будет распределять места в самолёте ✈️
-        /*for (Map.Entry<String, Integer> entry : passengerNames.entrySet()) {
-            System.out.println("'" + entry.getKey() + "' содержит " + entry.getValue() + " калорий в 100 г.");
-        }*/
-        Map<String, Integer> assignSeats = new LinkedHashMap<>();
-        for (int i = 0; i < passengerNames.size(); i++) {
-            assignSeats.put(passengerNames.get(i), i + 1);
-        }
-    return assignSeats;
+    private static void fillWithData(Map<User, String> users) {
+        users.put(new User(545, "Николай"), "Россия");
+        users.put(new User(8934, "Томас"), "Португалия");
+        users.put(new User(45, "Ив"), "Франция");
+        users.put(new User(5758, "Лили"), "Италия");
+        users.put(new User(247, "Винг"), "Гонконг");
+    }
+}
+
+class User {
+    Integer userId;
+    String name;
+
+    public User(Integer userId, String name) {
+        this.userId = userId;
+        this.name = name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        User user = (User) o;
+
+        return userId.equals(user.userId);
+    }
+
+    @Override
+    public int hashCode() {
+        return userId.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return "User{userId=" + userId + ", name=" + name + "}";
     }
 }
