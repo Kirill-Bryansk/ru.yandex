@@ -1,64 +1,80 @@
 package practicum.module_2.just;
 
-
-
-import java.util.Comparator;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 public class Practicum {
     public static void main(String[] args) {
-        Comparator<User> userComparator = new Comparator<>() {
+        //Set<Ticket> tickets = new TreeSet<>();
+
+
+        /*Comparator<Ticket> comparator = new Comparator<Ticket>() {
             @Override
-            public int compare(User user1, User user2) {
-                return user1.name.compareTo(user2.name);
+            public int compare(Ticket o1, Ticket o2) {
+                return o1.priceInUsd - o2.priceInUsd;
             }
-        };
+        };*/
 
-        Map<User, String> users = new TreeMap<>(userComparator);
-        fillWithData(users);
 
-        System.out.println("Пользователи: ");
-        for (Map.Entry<User, String> entry : users.entrySet()) {
-            System.out.println(entry);
+        Set<Ticket> tickets = new HashSet<>();
+        fillTickets(tickets);
+
+        System.out.println("Доступные билеты: ");
+        for (Ticket ticket : tickets) {
+            System.out.println("  * " + ticket);
         }
     }
 
-    private static void fillWithData(Map<User, String> users) {
-        users.put(new User(545, "Николай"), "Россия");
-        users.put(new User(8934, "Томас"), "Португалия");
-        users.put(new User(45, "Ив"), "Франция");
-        users.put(new User(5758, "Лили"), "Италия");
-        users.put(new User(247, "Винг"), "Гонконг");
-    }
-}
-
-class User {
-    Integer userId;
-    String name;
-
-    public User(Integer userId, String name) {
-        this.userId = userId;
-        this.name = name;
+    private static void fillTickets(Set<Ticket> tickets) {
+        tickets.add(new Ticket("Лондон", "Париж", 376));
+        tickets.add(new Ticket("Милан", "Москва", 298));
+        tickets.add(new Ticket("Берлин", "Бостон", 1273));
+        tickets.add(new Ticket("Пекин", "Рим", 846));
+        tickets.add(new Ticket("Санкт-Петербург", "Афины", 284));
+        tickets.add(new Ticket("Сидней", "Токио", 1738));
+        tickets.add(new Ticket("Мюнхен", "Дубай", 974));
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+    public static class Ticket implements Comparable {
+        public String from;
+        public String to;
+        public int priceInUsd;
 
-        User user = (User) o;
+        public Ticket(String from, String to, int priceInUsd) {
+            this.from = from;
+            this.to = to;
+            this.priceInUsd = priceInUsd;
+        }
 
-        return userId.equals(user.userId);
-    }
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
 
-    @Override
-    public int hashCode() {
-        return userId.hashCode();
-    }
+            Ticket ticket = (Ticket) o;
 
-    @Override
-    public String toString() {
-        return "User{userId=" + userId + ", name=" + name + "}";
+            if (priceInUsd != ticket.priceInUsd) return false;
+            if (!from.equals(ticket.from)) return false;
+            if (!to.equals(ticket.to)) return false;
+
+            return true;
+        }
+
+        @Override
+        public int hashCode() {
+            int result = from.hashCode();
+            result = 31 * result + to.hashCode();
+            result = 31 * result + priceInUsd;
+            return result;
+        }
+
+        @Override
+        public String toString() {
+            return "Ticket{from=" + from + ", to=" + to + ", priceInUsd=" + priceInUsd + '}';
+        }
+
+        @Override
+        public int compareTo(Object o) {
+            return this.priceInUsd - priceInUsd;
+        }
     }
 }
