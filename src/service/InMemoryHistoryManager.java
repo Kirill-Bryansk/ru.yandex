@@ -80,12 +80,12 @@ public class InMemoryHistoryManager implements HistoryManager {
         historyMap.remove(node.iteam.getId());
     }
 
-    private static class Node<Task> {
+    private static class Node {
         Task iteam;
-        Node<Task> next;
-        Node<Task> prev;
+        Node next;
+        Node prev;
 
-        public Node(Node<Task> prev, Task iteam, Node<Task> next) {
+        public Node(Node prev, Task iteam, Node next) {
             this.iteam = iteam;
             this.next = next;
             this.prev = prev;
