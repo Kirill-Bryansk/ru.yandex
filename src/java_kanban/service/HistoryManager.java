@@ -1,8 +1,7 @@
-package java_canban.service;
+package java_kanban.service;
 
-import java_canban.model.Task;
+import java_kanban.model.Task;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public interface HistoryManager {
@@ -10,4 +9,6 @@ public interface HistoryManager {
     List<Task> getHistory();
 
     void add(Task task);
+
+    void remove(int id);
 }

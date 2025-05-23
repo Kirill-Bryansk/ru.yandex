@@ -1,4 +1,4 @@
-package java_canban.service;
+package java_kanban.service;
 
 public class Managers  {
 

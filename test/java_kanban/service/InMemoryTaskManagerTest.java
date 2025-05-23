@@ -1,14 +1,12 @@
-package java_canban.service;
+package java_kanban.service;
 
-import java_canban.service.Managers;
-import java_canban.service.TaskManager;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import java_canban.model.Epic;
-import java_canban.model.Status;
-import java_canban.model.Subtask;
-import java_canban.model.Task;
+import java_kanban.model.Epic;
+import java_kanban.model.Status;
+import java_kanban.model.Subtask;
+import java_kanban.model.Task;
 
 import java.util.ArrayList;
 import java.util.List;
