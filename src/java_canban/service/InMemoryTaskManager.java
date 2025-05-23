@@ -1,9 +1,9 @@
 package java_canban.service;
 
-import java_canban.model.Epic;
-import java_canban.model.Status;
-import java_canban.model.Subtask;
-import java_canban.model.Task;
+import java_canban.service.model.Epic;
+import java_canban.service.model.Status;
+import java_canban.service.model.Subtask;
+import java_canban.service.model.Task;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -22,6 +22,7 @@ public class InMemoryTaskManager implements TaskManager {
     @Override
     public List<Task> getHistory() {
         return historyManager.getHistory();
+
     }
     @Override
     public int getCount() {

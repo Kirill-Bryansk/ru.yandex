@@ -1,9 +1,9 @@
 package java_canban.service;
 
-import java_canban.model.Epic;
-import java_canban.model.Status;
-import java_canban.model.Subtask;
-import java_canban.model.Task;
+import java_canban.service.model.Epic;
+import java_canban.service.model.Status;
+import java_canban.service.model.Subtask;
+import java_canban.service.model.Task;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ public interface TaskManager {
 
     int getCount();
 
-    List<Task> getHistory();// ПоЧЕу то здесь должен быть гет хистори
+    List<Task> getHistory();
 
     Task addTask(Task task);
 

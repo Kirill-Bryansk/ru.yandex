@@ -1,4 +1,4 @@
-package java_canban.model;
+package java_canban.service.model;
 
 public enum Status {
     NEW,

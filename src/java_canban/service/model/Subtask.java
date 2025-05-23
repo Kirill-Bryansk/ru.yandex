@@ -1,4 +1,4 @@
-package java_canban.model;
+package java_canban.service.model;
 
 public class Subtask extends Task {
     private final Integer epicId;
@@ -19,11 +19,11 @@ public class Subtask extends Task {
 
     @Override
     public String toString() {
-        return  "\n Subtask (" +
+        return  "Subtask (" +
                 "Название: " + getName() +
-                ", Описание: " + getDescription() +
-                ", id=" + getId() +
-                ", Статус: " + getStatus() +
-                ", epicId=" + epicId + ")" + "\n";
+                "; Описание: " + getDescription() +
+                "; id=" + getId() +
+                "; Статус: " + getStatus() +
+                "; epicId=" + epicId + ")";
     }
 }

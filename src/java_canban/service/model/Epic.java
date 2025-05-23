@@ -1,4 +1,4 @@
-package java_canban.model;
+package java_canban.service.model;
 
 import java.util.ArrayList;
 
@@ -34,15 +34,16 @@ public class Epic extends Task {
         subtaskList.clear();
     }
 
-
     @Override
     public String toString() {
-        return  "\nEpic: (" +
+        return  "Epic: (" +
                 "Название: " + getName() +
-                ", Описание: " + getDescription() +
-                ", Id = " + getId() +
-                ", Статус: " + getStatus() + ") \n" +
-                "Subtask эпика " + getName() + " : \n      " + subtaskList +
+                "; Описание: " + getDescription() +
+                "; Id = " + getId() +
+                "; Статус: " + getStatus() + ") \n" +
+                "Subtask эпика : \n "
+                + subtaskList.toString().replaceAll("[\\[\\]]", "")
+                .replace(',', '\n' ) +
                 "\n";
     }
 }

@@ -1,9 +1,9 @@
 package java_canban;
 
-import java_canban.model.Epic;
-import java_canban.model.Status;
-import java_canban.model.Subtask;
-import java_canban.model.Task;
+import java_canban.service.model.Epic;
+import java_canban.service.model.Status;
+import java_canban.service.model.Subtask;
+import java_canban.service.model.Task;
 import java_canban.service.Managers;
 import java_canban.service.TaskManager;
 
@@ -27,6 +27,11 @@ public class Main {
         System.out.println(manager.getTaskMap());
         System.out.println(manager.getEpicMap());
         System.out.println(manager.getSubtaskMap());
+        System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+       /* manager.getTaskMap().forEach(value -> System.out.println(value));
+        manager.getEpicMap().forEach(value -> System.out.println(value));
+        manager.getSubtaskMap().forEach(value -> System.out.println(value));*/
+        System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
         // Изменяю статус java_canban.model.Task
         manager.changeStatus(1, Status.DONE);
         manager.changeStatus(2,Status.IN_PROGRESS);
@@ -49,8 +54,8 @@ public class Main {
         System.out.println(manager.getSubtaskById(7));
         System.out.println(manager.getEpicById(3));
         System.out.println(manager.getEpicById(6));
-
         System.out.println("-".repeat(10));
-        System.out.println(manager.getHistory());
+        System.out.println(manager.getHistory().toString().replaceAll("[\\[\\]]", "")
+                .replace(',', '\n' ));
     }
 }

@@ -1,4 +1,4 @@
-package java_canban.model;
+package java_canban.service.model;
 
 import java.util.Objects;
 
@@ -11,6 +11,12 @@ public class Task {
     public Task(String name, String description) {
         this.name = name;
         this.description = description;
+    }
+
+    public Task(String name, String description, Status status) {
+        this.name = name;
+        this.description = description;
+        this.status = status;
     }
 
     public Task(String name, String description, Integer id ) {
@@ -74,11 +80,10 @@ public class Task {
 
     @Override
         public String toString() {
-        return "\nTask (" +
+        return "Task (" + // \n
                 "Название: " + name +
-                ", Описание: " + description +
-                ", Id = " + id +
-                ", Статус: " + status + ")" +
-                "\n";
+                "; Описание: " + description +
+                "; Id = " + id +
+                "; Статус: " + status + ")";
     }
 }
