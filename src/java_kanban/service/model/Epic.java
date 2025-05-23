@@ -1,4 +1,4 @@
-package java_canban.service.model;
+package java_kanban.service.model;
 
 import java.util.ArrayList;
 
@@ -36,14 +36,14 @@ public class Epic extends Task {
 
     @Override
     public String toString() {
-        return  "Epic: (" +
+        return "Epic: (" +
                 "Название: " + getName() +
                 "; Описание: " + getDescription() +
                 "; Id = " + getId() +
                 "; Статус: " + getStatus() + ") \n" +
                 "Subtask эпика : \n "
                 + subtaskList.toString().replaceAll("[\\[\\]]", "")
-                .replace(',', '\n' ) +
+                .replace(',', '\n') +
                 "\n";
     }
 }

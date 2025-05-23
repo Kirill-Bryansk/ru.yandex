@@ -1,11 +1,11 @@
-package java_canban;
+package java_kanban;
 
-import java_canban.service.model.Epic;
-import java_canban.service.model.Status;
-import java_canban.service.model.Subtask;
-import java_canban.service.model.Task;
-import java_canban.service.Managers;
-import java_canban.service.TaskManager;
+import java_kanban.service.model.Epic;
+import java_kanban.service.model.Status;
+import java_kanban.service.model.Subtask;
+import java_kanban.service.model.Task;
+import java_kanban.service.Managers;
+import java_kanban.service.TaskManager;
 
 public class Main {
 

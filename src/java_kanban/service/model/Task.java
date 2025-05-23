@@ -1,4 +1,4 @@
-package java_canban.service.model;
+package java_kanban.service.model;
 
 import java.util.Objects;
 
@@ -19,7 +19,7 @@ public class Task {
         this.status = status;
     }
 
-    public Task(String name, String description, Integer id ) {
+    public Task(String name, String description, Integer id) {
         this.name = name;
         this.description = description;
         this.id = id;
@@ -79,7 +79,7 @@ public class Task {
     }
 
     @Override
-        public String toString() {
+    public String toString() {
         return "Task (" + // \n
                 "Название: " + name +
                 "; Описание: " + description +

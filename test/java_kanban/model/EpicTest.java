@@ -1,6 +1,6 @@
-package java_canban.model;
+package java_kanban.model;
 
-import java_canban.service.model.Epic;
+import java_kanban.service.model.Epic;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;

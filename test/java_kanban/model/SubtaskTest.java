@@ -1,6 +1,6 @@
-package java_canban.model;
+package java_kanban.model;
 
-import java_canban.service.model.Subtask;
+import java_kanban.service.model.Subtask;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;

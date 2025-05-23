@@ -1,4 +1,4 @@
-package java_canban.service.model;
+package java_kanban.service.model;
 
 public class Subtask extends Task {
     private final Integer epicId;
@@ -19,7 +19,7 @@ public class Subtask extends Task {
 
     @Override
     public String toString() {
-        return  "Subtask (" +
+        return "Subtask (" +
                 "Название: " + getName() +
                 "; Описание: " + getDescription() +
                 "; id=" + getId() +
