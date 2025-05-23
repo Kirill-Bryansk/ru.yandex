@@ -19,7 +19,7 @@ public class Subtask extends Task {
 
     @Override
     public String toString() {
-        return  "\n Subtask (" +
+        return "\n Subtask (" +
                 "Название: " + getName() +
                 ", Описание: " + getDescription() +
                 ", id=" + getId() +

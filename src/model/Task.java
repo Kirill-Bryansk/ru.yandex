@@ -13,7 +13,7 @@ public class Task {
         this.description = description;
     }
 
-    public Task(String name, String description, Integer id ) {
+    public Task(String name, String description, Integer id) {
         this.name = name;
         this.description = description;
         this.id = id;
@@ -73,7 +73,7 @@ public class Task {
     }
 
     @Override
-        public String toString() {
+    public String toString() {
         return "\nTask (" +
                 "Название: " + name +
                 ", Описание: " + description +

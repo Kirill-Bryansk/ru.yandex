@@ -16,20 +16,20 @@ public class Main {
         Epic epic1 = new Epic("Эпик 1", "Очень Важный");
         manager.addEpic(epic1);
         manager.addSubtask(new Subtask("Sub - Эпика 1", "Подзадача 1", 3));
-        manager.addSubtask(new Subtask("Sub - Эпика 1", "Подзадача 2",  3));
+        manager.addSubtask(new Subtask("Sub - Эпика 1", "Подзадача 2", 3));
         // Эпик с одной подзадачей
         Epic epic2 = new Epic("Эпик 2", "Не менее Важный");
         manager.addEpic(epic2);
-        manager.addSubtask(new Subtask("Sub - Эпика 2", "Подзадача 1",  6));
+        manager.addSubtask(new Subtask("Sub - Эпика 2", "Подзадача 1", 6));
         // Печать списки Эпиков, Задач, Подзадач
         System.out.println(manager.getTaskMap());
         System.out.println(manager.getEpicMap());
         System.out.println(manager.getSubtaskMap());
         // Изменяю статус java_canban.model.Task
         manager.changeStatus(1, Status.DONE);
-        manager.changeStatus(2,Status.IN_PROGRESS);
+        manager.changeStatus(2, Status.IN_PROGRESS);
         // Изменяю статус SubTask
-        manager.changeStatus(4,Status.DONE);
+        manager.changeStatus(4, Status.DONE);
         manager.changeStatus(5, Status.DONE);
         manager.changeStatus(7, Status.IN_PROGRESS);
 
