@@ -8,18 +8,18 @@ import java.util.List;
 import java.util.Map;
 
 public class InMemoryHistoryManager implements HistoryManager {
-    private final Map<Integer, Node<Task>> historyMap = new HashMap<>();
-    Node<Task> head;
-    Node<Task> tail;
+    private final Map<Integer, Node> historyMap = new HashMap<>();
+    Node head;
+    Node tail;
 
     @Override
     public void add(Task task) {
         if (historyMap.containsKey(task.getId())) {
-            Node<Task> removeNode = historyMap.get(task.getId());
+            Node removeNode = historyMap.get(task.getId());
             removeNode(removeNode);
         } else {
             linkLast(task);
-            Node<Task> newNode = tail;
+            Node newNode = tail;
             historyMap.put(task.getId(), newNode);
         }
     }
@@ -32,14 +32,14 @@ public class InMemoryHistoryManager implements HistoryManager {
     @Override
     public void remove(int id) {
         if (historyMap.containsKey(id)) {
-            Node<Task> node = historyMap.get(id);
+            Node node = historyMap.get(id);
             removeNode(node);
         }
     }
 
     private void linkLast(Task task) {
-        final Node<Task> oldTail = tail;
-        final Node<Task> newNode = new Node<>(oldTail, task, null);
+        final Node oldTail = tail;
+        final Node newNode = new Node(oldTail, task, null);
         tail = newNode;
         if (oldTail == null) {
             head = newNode;
@@ -48,9 +48,9 @@ public class InMemoryHistoryManager implements HistoryManager {
         }
     }
 
-    public List<Task> getTasks() {
-        List<Task> historyList = new ArrayList<>();
-        Node<Task> saveNode = head;
+    public List getTasks() {
+        List historyList = new ArrayList<>();
+        Node saveNode = head;
         while (saveNode != null) {
             historyList.add(saveNode.iteam);
             saveNode = saveNode.next;
@@ -58,7 +58,7 @@ public class InMemoryHistoryManager implements HistoryManager {
         return historyList;
     }
 
-    public void removeNode(Node<Task> node) {
+    public void removeNode(Node node) {
         if (node == head) {
             head = node.next;
             if (head != null) {
