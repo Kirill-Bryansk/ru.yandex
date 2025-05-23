@@ -47,31 +47,28 @@ public class InMemoryHistoryManagerTest {
 
     @Test
     void shouldAddTheSameTaskJustOneTimeAtHistoryList() {
-        // prepare
+
         Task taskOne = new Task("Задача", "Делать", 1, Status.NEW);
 
-        // do
         historyManager.add(taskOne);
         historyManager.add(taskOne);
         historyManager.add(taskOne);
         final List<Task> history = historyManager.getHistory();
 
-        // check
         Assertions.assertEquals(1, history.size(), "Задача не была продублирована в истории");
     }
 
     @Test
     void whenTaskHasDeletedShouldDeleteItFromHistoryList() {
-        // prepare
+
         Task taskOne = new Task("Задача", "Делать", 1, Status.NEW);
         taskManager.addTask(taskOne);
         taskManager.getTaskById(taskOne.getId());
 
-        // do
+
         taskManager.deleteTaskById(taskOne.getId());
         final List<Task> history = historyManager.getHistory();
 
-        // check
         Assertions.assertEquals(0, history.size(), "Задача не удалена");
     }
 }
