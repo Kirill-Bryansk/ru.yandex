@@ -1,6 +1,6 @@
 package java_kanban.service;
 
-import java_kanban.service.model.Task;
+import java_kanban.model.Task;
 
 import java.util.List;
 

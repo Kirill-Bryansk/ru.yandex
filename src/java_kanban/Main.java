@@ -1,9 +1,9 @@
 package java_kanban;
 
-import java_kanban.service.model.Epic;
-import java_kanban.service.model.Status;
-import java_kanban.service.model.Subtask;
-import java_kanban.service.model.Task;
+import java_kanban.model.Epic;
+import java_kanban.model.Status;
+import java_kanban.model.Subtask;
+import java_kanban.model.Task;
 import java_kanban.service.Managers;
 import java_kanban.service.TaskManager;
 
@@ -27,11 +27,7 @@ public class Main {
         System.out.println(manager.getTaskMap());
         System.out.println(manager.getEpicMap());
         System.out.println(manager.getSubtaskMap());
-        System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-       /* manager.getTaskMap().forEach(value -> System.out.println(value));
-        manager.getEpicMap().forEach(value -> System.out.println(value));
-        manager.getSubtaskMap().forEach(value -> System.out.println(value));*/
-        System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+
         // Изменяю статус java_canban.model.Task
         manager.changeStatus(1, Status.DONE);
         manager.changeStatus(2,Status.IN_PROGRESS);

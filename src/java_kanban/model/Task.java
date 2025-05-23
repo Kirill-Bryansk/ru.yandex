@@ -1,4 +1,4 @@
-package java_kanban.service.model;
+package java_kanban.model;
 
 import java.util.Objects;
 

@@ -1,10 +1,10 @@
 package java_kanban.service;
 
-import java_kanban.service.model.Status;
+import java_kanban.model.Status;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import java_kanban.service.model.Task;
+import java_kanban.model.Task;
 
 import java.util.List;
 
