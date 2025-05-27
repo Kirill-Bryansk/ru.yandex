@@ -1,13 +1,15 @@
 package practicum.module_2.just;
 
-import java.util.HashSet;
-import java.util.Set;
-
 public class Practicum {
     public static void main(String[] args) {
+        StringBuilder initial = new StringBuilder("Большая красная кнопка");
 
-        System.out.println("Так много методов!".indexOf("м", 3) == 4);
-        System.out.println("Как их все запомнить?!".charAt(20) == '?');
-        System.out.println("Шиншилла".lastIndexOf("и") == 4);
+        initial.replace(8, 15, "белая");
+        initial.delete(14, 30);
+        initial.append("груша");
+        initial.setLength(7);
+        initial.reverse();
+
+        System.out.println(initial.toString().toLowerCase());
     }
 }
